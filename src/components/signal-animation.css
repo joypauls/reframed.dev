@@ -1,0 +1,67 @@
+.primaryLine {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    /* -webkit-animation: drawPrimary 1.5s forwards; */
+    animation: drawPrimary 1.5s forwards;
+    /* animation-name: drawPrimary;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards; */
+    /* animation: rays 40s linear 0.01s infinite; */
+}
+
+.secondaryLine {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawSecondary 1.5s forwards;
+}
+
+/* @-webkit-keyframes drawPrimary {
+    from { stroke-dashoffset: 100; }
+    to { stroke-dashoffset: 0; }
+}
+
+@-webkit-keyframes drawSecondary {
+    from { stroke-dashoffset: 100; }
+    to { stroke-dashoffset: 200; }
+} */
+
+@keyframes drawPrimary {
+    from { stroke-dashoffset: 100; }
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes drawSecondary {
+    from { stroke-dashoffset: 100; }
+    to { stroke-dashoffset: 200; }
+}
+
+/* @-webkit-keyframes draw2 {
+    from {
+        stroke-dashoffset: 700;
+    }
+    to {
+        stroke-dashoffset: 1400;
+    }
+}
+
+@keyframes draw1 {
+    from {
+        stroke-dashoffset: 700;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes draw2 {
+    from {
+        stroke-dashoffset: 700;
+    }
+    to {
+        stroke-dashoffset: 1400;
+    }
+} */
+
+  
