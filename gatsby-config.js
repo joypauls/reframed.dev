@@ -48,10 +48,10 @@ module.exports = {
           //   title: `Support`,
           //   slug: `/support`,
           // },
-          {
-            title: `Contact`,
-            slug: `/contact`,
-          },
+          // {
+          //   title: `Contact`,
+          //   slug: `/contact`,
+          // },
         ],
         externalLinks: [
           {

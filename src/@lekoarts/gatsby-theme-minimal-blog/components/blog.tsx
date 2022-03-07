@@ -29,17 +29,69 @@ type PostsProps = {
 }
 
 const sortOptions = [
-  { value: "date descending", label: "Date ↓" },
-  { value: "date ascending", label: "Date ↑" },
-  { value: "alphabetical descending", label: "Alphabetical ↓" },
-  { value: "alphabetical ascending", label: "Alphabetical ↑" },
+  { value: "date descending", label: "Date ↓", method: sortDateDescending},
+  { value: "date ascending", label: "Date ↑", method: sortDateAscending},
+  // { value: "alphabetical descending", label: "Alphabetical ↓" },
+  // { value: "alphabetical ascending", label: "Alphabetical ↑" },
 ];
 
+function sortDateDescending(p) {
+  function compare(a, b) {
+    a = Date.parse(a.date)
+    b = Date.parse(b.date)
+    if (a > b){
+      return -1;
+    }
+    if (a < b){
+      return 1;
+    }
+    return 0;
+  }
+  p.sort(compare);
+  return p;
+}
+
+function sortDateAscending(p) {
+  function compare(a, b) {
+    a = Date.parse(a.date)
+    b = Date.parse(b.date)
+    if (a < b){
+      return -1;
+    }
+    if (a > b){
+      return 1;
+    }
+    return 0;
+  }
+  p.sort(compare);
+  return p;
+}
+
+// this could all be abstracted nicer but who cares
+function sortPosts(p, sort) {
+  if (typeof sort.method === "function") {
+    return sort.method(p);
+  } else {
+    return p;
+  }
+}
+
 const filterOptions = [
-  { value: "math", label: "🧮 Math" },
-  { value: "statistics", label: "📈 Statistics" },
-  { value: "coding", label: "💻 Coding" },
+  { value: "Math", label: "🧮 Math" },
+  { value: "Statistics", label: "📈 Statistics" },
+  { value: "Coding", label: "💻 Coding" },
 ];
+
+// this could all be abstracted nicer but who cares
+function filterPosts(p, filter) {
+  // it is null when filter removed, but starts as []
+  if (typeof filter === "object" && filter !== null && "value" in filter) {
+    const match = (tags) => tags.name === filter.value;
+    return p.filter(x => x.tags.some(match));
+  }
+  return p;
+}
+
 
 const SortDropdown = (props) => (
   <Select 
@@ -47,6 +99,7 @@ const SortDropdown = (props) => (
     defaultValue={props.default} 
     placeholder="Select sorting method"
     name={props.name}
+    onChange={props.onChange}
     styles={{
       control: (provided, state) => ({
         ...provided,
@@ -77,6 +130,7 @@ const FilterDropdown = (props) => (
     placeholder="Filter by Tag"
     isClearable={true}
     name={props.name}
+    onChange={props.onChange}
     styles={{
       control: (provided, state) => ({
         ...provided,
@@ -105,11 +159,17 @@ const Blog = ({ posts }: PostsProps) => {
   const { tagsPath, basePath } = useMinimalBlogConfig();
   const context = useThemeUI();
   const { theme, colorMode, setColorMode } = context;
-  const [filters, setFilters] = useState([]);
+  const [sortMethod, setSortMethod] = useState({});
+  const [filterMethod, setFilterMethod] = useState({});
 
-  const onSelectChange = values => {
+  const onSortChange = value => {
+    // console.log(values);
+    setSortMethod(value);
+  };
+
+  const onFilterChange = values => {
     console.log(values);
-    setFilters(values);
+    setFilterMethod(values);
   };
 
   return (
@@ -121,14 +181,14 @@ const Blog = ({ posts }: PostsProps) => {
       <Flex sx={{ width: "100%", justifyContent: "center", mb: 5 }}>
         <Box sx={{ width: ["60%", "40%", "30%"], mx: 2 }}>
           <Label htmlFor="sortSelection">Sort Posts</Label>
-          <SortDropdown name="sortSelection" options={sortOptions} default={sortOptions[0]} theme={theme} />
+          <SortDropdown name="sortSelection" options={sortOptions} default={sortOptions[0]} theme={theme} onChange={onSortChange} />
         </Box>
         <Box sx={{ width: ["60%", "40%", "30%"], mx: 2 }}>
           <Label htmlFor="filterSelection">Filter Tags</Label>
-          <FilterDropdown name="filterSelection" options={filterOptions} theme={theme} />
+          <FilterDropdown name="filterSelection" options={filterOptions} theme={theme} onChange={onFilterChange} />
         </Box>
       </Flex>
-      <Listing posts={posts} showTags={true} />
+      <Listing posts={sortPosts(filterPosts(posts, filterMethod), sortMethod)} showTags={true} />
     </Layout>
   );
 }

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import * as React from "react";
 import { Global } from "@emotion/react";
-import { Box, Container, jsx } from "theme-ui";
+import { Box, Container, Divider, jsx } from "theme-ui";
 import Seo from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";
 import Header from "@lekoarts/gatsby-theme-minimal-blog/src/components/header";
 import Footer from "@lekoarts/gatsby-theme-minimal-blog/src/components/footer";
@@ -57,8 +57,9 @@ const Layout = ({ children, className = `` }: LayoutProps) => (
     />
     <Seo />
     <SkipNavLink>Skip to content</SkipNavLink>
+    <Header />
     <Container>
-      <Header />
+      {/* <Header /> */}
       <Box 
         id="skip-nav" 
         sx={{
@@ -73,8 +74,8 @@ const Layout = ({ children, className = `` }: LayoutProps) => (
       >
         {children}
       </Box>
-      <Footer />
     </Container>
+    <Footer />
   </React.Fragment>
 )
 
