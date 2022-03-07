@@ -20,12 +20,34 @@ const Header = () => {
   // }
 
   return (
-    <header sx={{ mb: [4, 5] }}>
-      <Flex sx={{ alignItems: `center`, justifyContent: `space-between` }}>
+    <header sx={{ 
+      mb: [4, 5],
+      py: 3,
+      variant: `dividers.header`,
+      px: 2,
+    }}>
+      <Flex sx={{ 
+        alignItems: `center`, 
+        justifyContent: `space-between`, 
+        margin: "auto", 
+        width: ["100%", "100%", "80%"],
+      }}>
         <HeaderTitle />
         {/* <ColorModeToggle isDark={isDark} toggle={toggleColorMode} /> */}
+        <div
+          sx={{
+            boxSizing: `border-box`,
+            pb: 1,
+            mt: 2,
+            color: `secondary`,
+            a: { color: `secondary`, ":hover": { color: `heading` } },
+            flexFlow: `wrap`,
+          }}
+        >
+          <Navigation nav={nav} />
+        </div>
       </Flex>
-      <div
+      {/* <div
         sx={{
           boxSizing: `border-box`,
           display: `flex`,
@@ -43,7 +65,7 @@ const Header = () => {
       >
         <Navigation nav={nav} />
         <HeaderExternalLinks isEmphasized={false} />
-      </div>
+      </div> */}
     </header>
   );
 }

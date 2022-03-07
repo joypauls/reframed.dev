@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React from "react";
-import { jsx, Link as TLink } from "theme-ui";
+import { jsx, Link as TLink, Button } from "theme-ui";
 import { Link } from "gatsby";
 import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config";
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
@@ -25,19 +25,20 @@ const Navigation = ({ nav }: NavigationProps) => {
             // fontSize: [1, `18px`], 
             fontSize: [1, 2, 2],
             // fontFamily: `Mulish`,
-            ".active": { 
-                color: `heading`,
-            },
+            // ".active": { 
+            //     color: `heading`,
+            // },
         }}>
           {nav.map((item) => {
             let l = replaceLinkName(item.title);
             return (
-              <TLink 
+              <Button 
                 key={item.slug} 
                 className={stringIsFaIcon(l) ? l : ""}
                 as={Link} 
                 activeClassName="active" 
                 to={replaceSlashes(`/${basePath}/${item.slug}`)} 
+                variant="nav"
                 sx={{
                   transform: stringIsFaIcon(l) ? `scale(1.2)` : `scale(1)`,
                   ":hover": {
@@ -49,7 +50,7 @@ const Navigation = ({ nav }: NavigationProps) => {
                 }}
               >
                 {stringIsFaIcon(l) ? "" : l}
-              </TLink>
+              </Button>
             );
           })}
         </nav>

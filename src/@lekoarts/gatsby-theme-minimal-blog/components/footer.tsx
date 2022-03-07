@@ -11,22 +11,24 @@ const Footer = () => {
       sx={{
         boxSizing: `border-box`,
         display: `flex`,
-        justifyContent: `space-between`,
+        justifyContent: `center`,
         mt: [4, 5, 6],
         mb: 2,
+        py: 3,
+        px: 2,
         color: `secondary`,
         a: {
           variant: `links.secondary`,
         },
-        flexDirection: [`column`, `column`, `column`],
-        // variant: `dividers.top`,
+        flexDirection: `column`,
+        variant: `dividers.footer`,
         fontSize: [0, 1, 1],
       }}
     >
-      <Flex sx={{justifyContent: "center", mb: [3, 4, 4]}}>
+      {/* <Flex sx={{justifyContent: "center", mb: [3, 4, 4]}}>
         <HeaderExternalLinks isEmphasized={true} />
-      </Flex>
-      <Flex sx={{justifyContent: "space-between"}}>
+      </Flex> */}
+      <Flex sx={{justifyContent: "space-between", margin: "auto", width: ["100%", "100%", "80%"]}}>
         <span>
           &copy;{new Date().getFullYear()}
           {` `}

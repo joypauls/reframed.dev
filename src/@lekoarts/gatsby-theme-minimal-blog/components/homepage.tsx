@@ -46,7 +46,7 @@ const Homepage = ({ posts }: PostsProps) => {
       {/* <Flex sx={{ alignItems: `center`, justifyContent: `center`}}>
         <HeroContent />
       </Flex> */}
-      <section sx={{mt: [3, 3, 3], mb: [5, 5, 6], fontSize: [3, 3, 3], mx: [3, 5, 6]}}>
+      <section sx={{textAlign: "center", mt: [3, 3, 3], mb: [5, 5, 5], fontSize: [3, 3, 3], mx: [3, 5, 6]}}>
         {/* <Flex sx={{justifyContent: "center"}}>
           <Text sx={{fontSize: [3, 4, 5], variant: "text.heading"}}>Welcome 🌼 I'm Joy</Text>
         </Flex> */}

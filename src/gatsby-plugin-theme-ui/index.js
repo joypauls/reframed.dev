@@ -181,11 +181,17 @@ const theme = merge(tailwind, {
   layout: {
     container: {
       padding: [2, 3],
-      maxWidth: `1024px`,
+      // maxWidth: `1024px`,
+      width: ["100%", "100%", "80%"],
       minHeight: `100vh`,
       display: `flex`,
       flexDirection: `column`,
     },
+    // footer: {
+    //   borderTopStyle: `solid`,
+    //   borderTopWidth: `3px`,
+    //   borderTopColor: `tagBackground`,
+    // }
   },
   text: {
     heading: {
@@ -231,6 +237,18 @@ const theme = merge(tailwind, {
       borderTopColor: `tagBackground`,
       pt: 3,
     },
+    header: {
+      borderBottomStyle: `solid`,
+      borderBottomWidth: `1px`,
+      borderBottomColor: tailwind.colors.gray[4],
+      // pt: 3,
+    },
+    footer: {
+      borderTopStyle: `solid`,
+      borderTopWidth: `1px`,
+      borderTopColor: tailwind.colors.gray[4],
+      // pt: 3,
+    },
   },
   links: {
     secondary: {
@@ -263,6 +281,21 @@ const theme = merge(tailwind, {
         borderColor: "heading",
         backgroundColor: "transparent",
         color: "heading",
+      },
+    },
+    nav: {
+      borderBottomWidth: 2,
+      borderBottomStyle: "solid",
+      borderColor: "transparent",
+      borderRadius: 0,
+      backgroundColor: "transparent",
+      color: "text",
+      cursor: "pointer",
+      px: "0.1rem",
+      py: "0.1rem",
+      ":hover": {
+        borderBottomColor: "heading",
+        backgroundColor: "transparent",
       },
     },
   },
