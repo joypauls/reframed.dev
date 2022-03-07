@@ -35,9 +35,10 @@ const BlogListCard = ({ post, showTags = true }: BlogListCardProps) => (
       // boxShadow: theme => `1px 1px 7px 0px rgba(150, 150, 150, 0.4)`,
       ":hover": { 
         // textDecoration: "none", 
-        border: "2px solid",
+        border: "1px solid",
         borderColor: "tagBorder",
         backgroundColor: "transparent",
+        boxShadow: `0px 2px 8px 0px rgba(0, 0, 0, 0.2)`,
         // color: "tagText",
         // color: "tagBorder",
         cursor: "pointer",

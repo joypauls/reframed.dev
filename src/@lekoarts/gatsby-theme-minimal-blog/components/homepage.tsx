@@ -55,7 +55,7 @@ const Homepage = ({ posts }: PostsProps) => {
           <Button variant="primary" sx={{borderRadius: "5px", fontSize: [2, 3, 3], py: 2}}>Explore!</Button>
         </Flex> */}
       </section>
-      <Title text="Latest Writing">
+      <Title text="Latest">
         <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>View All</Link>
       </Title>
       <Listing posts={posts} showTags={true} />

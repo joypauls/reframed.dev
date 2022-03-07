@@ -17,8 +17,8 @@ const tagStyle = {
   borderColor: "tagBorder",
   borderRadius: "5px",
   color: "tagText",
-  paddingLeft: "0.5rem",
-  paddingRight: "0.5rem",
+  paddingLeft: "0.25rem",
+  paddingRight: "0.25rem",
   textDecoration: "none",
   marginRight: "0.5rem",
   ":hover": { 
