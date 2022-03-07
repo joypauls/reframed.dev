@@ -4,10 +4,82 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager</title>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/netlify-identity-widget/build/netlify-identity-widget.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+    integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@1.1.0/marked.min.js" integrity="sha256-GGbzkRkTtLnv3bOg61WAnkjYHxtsiVqu+tjMj6ssDVw=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/highlight.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous">
+  </script>
 </head>
+
 <body>
+
+  <!-- Copied some stuff from https://gist.github.com/ottanjp/1dafad2bf378952d2ca0821b7c73a7df for katex -->
+
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script>
+    CMS.registerPreviewStyle(
+      "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css"
+    );
+    CMS.registerPreviewStyle(
+      "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+    );
+    CMS.registerPreviewStyle(
+      "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/github-gist.min.css"
+    )
+  </script>
+  <!-- <script type="module" src="/admin/index.js"></script> -->
+  <script type="module">
+    import htm from 'https://unpkg.com/htm?module';
+    const html = htm.bind(h);
+
+    const Post = createClass({
+      render() {
+        const entry = this.props.entry;
+        const title = entry.getIn(['data', 'title'], null);
+        let body = entry.getIn(['data', 'body'], '');
+        let div = document.createElement('div');
+
+        const renderer = new marked.Renderer()
+        renderer.image = (href, title, text) => {
+          if (!href) return text;
+          const uri = this.props.getAsset(href).url;
+          return `<img src="${uri}" title="${title}" alt="${text}"/>`
+        }
+
+        marked.setOptions({
+          highlight: function (code, lang) {
+            return hljs.highlightAuto(code, [lang]).value;
+          },
+          renderer: renderer,
+        });
+        div.innerHTML = marked(body);
+        renderMathInElement(div, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        });
+
+        return html`
+          <body>
+            <main>
+              <article id="markdown-body" class="markdown-body">
+                <h1>${title}</h1>
+                <div dangerouslySetInnerHTML=${{ __html: div.innerHTML }}></div>
+              </article>
+            </main>
+          </body>
+        `;
+      },
+    });
+
+    CMS.registerPreviewTemplate('blog', Post);
+  </script>
 </body>
+
 </html>
