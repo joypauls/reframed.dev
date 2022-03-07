@@ -8,7 +8,7 @@ tags:
 ---
 \## The Normal Distribution
 
-insert plot
+insert plot here
 
 The famous \*normal distribution\* is a two-parameter family with the density function:
 
