@@ -111,25 +111,11 @@ module.exports = {
         openAnalyzer: false,
       },
     },
-    // disabling in parent them to override here
-    // {
-    //   resolve: `gatsby-plugin-mdx`,
-    //   options: {
-    //     remarkPlugins: [require(`remark-math`)],
-    //     rehypePlugins: [require(`rehype-katex`)]
-    //   }
-    // },
-    // {
-    //   resolve: `gatsby-remark-katex`,
-    //   options: {
-    //     // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-    //     strict: `ignore`
-    //   }
-    // },
     `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.mdx`, `.md`],
         // defaultLayouts: {
         //   default: require.resolve("./src/components/default-layout.js"),
         // },
