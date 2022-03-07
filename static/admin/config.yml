@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
+  squash_merges: true
 
 media_folder: "static/images/uploads" # Media files
 public_folder: "/images/uploads" # The src attribute for uploaded media
