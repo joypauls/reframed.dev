@@ -10,6 +10,8 @@ tags:
 
 insert plot here
 
+![test](test.jpg "IEEE-754 32-bit floating-point number")
+
 The **normal distribution** is a two-parameter family with the density function:
 
 $$
