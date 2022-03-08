@@ -13,14 +13,12 @@ insert plot here
 The **normal distribution** is a two-parameter family with the density function:
 
 $$
-
 f(x|\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2} (\frac{x-\mu}{\sigma})^2}
-
 $$
 
 It has always struck me as a contradiction - a beautiful, intuitive curve and a gnarly, convoluted equation. When we look at the curve without the math, it just kind of *makes sense* doesn't it? Most of the density huddles around a central point, $\mu$, while it decays to $0$ as we venture further from the center, depending on $\sigma$. It's really easy to take for granted, but there is quite a lot of history to unpack here.
 
----
+- - -
 
 ## Story Time 📖
 
@@ -28,18 +26,21 @@ The year is 1809 &mdash; de Moivre has already described a function similar to t
 
 ### Astronomical Errors
 
-There was a sort of 19th century [Kaggle competition](link) going on at this time. Some astronomers with particularly shaky hands were tracking the motion of the protoplanet [Ceres](). On top of the fact that measurements performed by humans are imperfect, there was another big issue: Ceres disappears behind the Sun! 
+There was a sort of 19th century [Kaggle competition](link) going on at this time. Some astronomers with particularly shaky hands were tracking the motion of the protoplanet [Ceres](<>). On top of the fact that measurements performed by humans are imperfect, there was another big issue: Ceres disappears behind the Sun! 
 
 Story of gauss astronomical errors and least squares average rise to prominence
 
 ## Gauss's Guidelines for an Error Distribution
 
 1. Non-Uniformity
-    * Small errors are more likely than large errors
+
+   * Small errors are more likely than large errors
 2. Symmetry
-    * Given any $\epsilon \in \mathbb{R}$, the errors $\epsilon$ and $-\epsilon$ are equally likely
+
+   * Given any $\epsilon \in \mathbb{R}$, the errors $\epsilon$ and $-\epsilon$ are equally likely
 3. Average as the Maximum Likelihood Estimator
-    * The most likely value of the quantity repeatedly measured is the average of the measurements
+
+   * The most likely value of the quantity repeatedly measured is the average of the measurements
 
 ### Non-Uniformity
 
