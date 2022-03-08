@@ -240,13 +240,13 @@ const theme = merge(tailwind, {
     header: {
       borderBottomStyle: `solid`,
       borderBottomWidth: `1px`,
-      borderBottomColor: tailwind.colors.gray[4],
+      borderBottomColor: tailwind.colors.gray[3],
       // pt: 3,
     },
     footer: {
       borderTopStyle: `solid`,
       borderTopWidth: `1px`,
-      borderTopColor: tailwind.colors.gray[4],
+      borderTopColor: tailwind.colors.gray[3],
       // pt: 3,
     },
   },

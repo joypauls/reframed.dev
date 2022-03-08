@@ -16,7 +16,7 @@ module.exports = {
     // Can be used for e.g. JSONLD
     siteHeadline: `Blog`,
     // Will be used to generate absolute URLs for og:image etc.
-    siteUrl: `https://joypauls.dev`,
+    siteUrl: `https://reframed.dev`,
     // Used for SEO
     siteDescription: `A blog about various topics in statistics and mathematics`,
     // Will be set on the <html /> tag
@@ -139,11 +139,6 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
+    'gatsby-plugin-netlify-cms',
   ].filter(Boolean),
 }
