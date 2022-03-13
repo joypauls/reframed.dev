@@ -117,8 +117,8 @@ const SortDropdown = (props) => (
       }),
       option: (provided, state) => ({
          ...provided,
-         backgroundColor: state.isFocused && props.theme.colors.tagBackground,
-         color: state.isFocused && "#ffffff",
+         backgroundColor: state.isFocused && props.theme.colors.primarySoft,
+         color: state.isFocused ? "#ffffff" : props.theme.colors.text,
       })
     }}
   />
@@ -148,8 +148,8 @@ const FilterDropdown = (props) => (
       }),
       option: (provided, state) => ({
          ...provided,
-         backgroundColor: state.isFocused && props.theme.colors.tagBackground,
-         color: state.isFocused && "#ffffff",
+         backgroundColor: state.isFocused && props.theme.colors.primarySoft,
+         color: state.isFocused ? "#ffffff" : props.theme.colors.text,
       })
     }}
   />
@@ -179,11 +179,11 @@ const Blog = ({ posts }: PostsProps) => {
         <Link to={replaceSlashes(`/${basePath}/${tagsPath}`)}>All Tags</Link>
       </Title>
       <Flex sx={{ width: "100%", justifyContent: "center", mb: 5 }}>
-        <Box sx={{ width: ["60%", "40%", "30%"], mx: 2 }}>
+        <Box sx={{ width: ["60%", "40%", "30%"], mr: 2 }}>
           <Label htmlFor="sortSelection">Sort Posts</Label>
           <SortDropdown name="sortSelection" options={sortOptions} default={sortOptions[0]} theme={theme} onChange={onSortChange} />
         </Box>
-        <Box sx={{ width: ["60%", "40%", "30%"], mx: 2 }}>
+        <Box sx={{ width: ["60%", "40%", "30%"], ml: 2 }}>
           <Label htmlFor="filterSelection">Filter Tags</Label>
           <FilterDropdown name="filterSelection" options={filterOptions} theme={theme} onChange={onFilterChange} />
         </Box>

@@ -45,28 +45,30 @@ const Post = ({ data: { post } }: PostProps) => (
       pathname={post.slug}
       canonicalUrl={post.canonicalUrl}
     />
-    <Heading as="h1" variant="styles.h1">
-      {post.title}
-    </Heading>
-    <Heading as="h5" variant="styles.h5">
-      {post.description}
-    </Heading>
-    <p sx={{ color: `secondary`, mt: 3, fontSize: [1, 1, 2] }}>
-      <i className="fa fa-calendar" sx={{ marginRight: `5px` }}></i>
-      <time sx={{ mr: 3 }}>{post.date}</time>
+    <p sx={{ color: `secondary`, mt: 3, mb: 1, fontSize: [1, 1, 2] }}>
       {post.tags && (
         <React.Fragment>
           {/* {` — `} */}
           <ItemTags tags={post.tags} />
         </React.Fragment>
       )}
+    </p>
+    <Heading as="h1" variant="styles.postTitle">
+      {post.title}
+    </Heading>
+    <Heading as="h5" variant="styles.postDescription">
+      {post.description}
+    </Heading>
+    <p sx={{ color: `secondary`, mt: 3, fontSize: [1, 1, 2] }}>
+      <i className="fa fa-calendar" sx={{ marginRight: `5px` }}></i>
+      <time sx={{ mr: 3 }}>{post.date}</time>
       {/* {post.timeToRead && ` — `}
       {post.timeToRead && <span>{post.timeToRead} min read</span>} */}
     </p>
     <section
       sx={{
         my: 5,
-        mx: [0, 0, 4],
+        // mx: [0, 0, 4],
         ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) },
         variant: `layout.content`,
         ".footnotes>ol>li": { fontSize: "1rem" },

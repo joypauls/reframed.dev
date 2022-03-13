@@ -9,27 +9,29 @@ const theme = merge(tailwind, {
   // clean this up pleaseeeee
   colors: {
     text: tailwind.colors.black,
-    primary: tailwind.colors.purple[7],
+    // primary: tailwind.colors.purple[7],
     secondary: tailwind.colors.black,
     toggleIcon: tailwind.colors.black,
-    // background: `#f6f5f7`,
+    // background: `#fffbfd`,
     background: `#ffffff`,
     backgroundLight: `#503254`,
     heading: `#5a35b8`,
     // heading: `#ff9494`,
     divide: tailwind.colors.gray[4],
-    tagText: tailwind.colors.gray[1],
+    // tagText: tailwind.colors.gray[1],
     // tagBackground: `#a9d1bb`,
     // tagBackground: `#65b897`,
-    tagBorder: `#5a35b8`,
-    tagBackground: `#af9be0`,
+    tagBorder: `#e752a4`,
+    tagBackground: `transparent`,
     graphicPrimary: `#5a35b8`,
     graphicSecondary: `#65b897`,
-    primarySoft: `#ded7f7`,
+    primarySoft: `#af9be0`,
     ////// NEW DESIGNATED
-    cardBorder: tailwind.colors.black,
+    cardBorder: tailwind.colors.gray[3],
     cardShadow: `#f09386`,
     cardBackground: `#fffbfd`,
+    primary: "#5a35b8",
+    primarySoft: `#af9be0`,
     modes: {
       dark: {
         text: tailwind.colors.black,
@@ -42,7 +44,7 @@ const theme = merge(tailwind, {
         heading: `#5a35b8`,
         // heading: `#ff9494`,
         divide: tailwind.colors.gray[4],
-        tagText: tailwind.colors.gray[1],
+        // tagText: tailwind.colors.gray[1],
         // tagBackground: `#a9d1bb`,
         // tagBackground: `#65b897`,
         tagBorder: `#5a35b8`,
@@ -100,9 +102,20 @@ const theme = merge(tailwind, {
         // "--x-height-multiplier": 0.35,
       },
     },
+    postTitle: {
+      variant: `text.heading`,
+      fontSize: [6, 6, 7],
+      mt: 2,
+      mb: 2,
+    },
+    postDescription: {
+      variant: `text.heading`,
+      fontSize: [2, 2, 3],
+      mt: 2,
+    },
     h1: {
       variant: `text.heading`,
-      fontSize: [5, 6, 7],
+      fontSize: [6, 6, 7],
       mt: 2,
       mb: 3,
     },
@@ -174,18 +187,19 @@ const theme = merge(tailwind, {
     hr: {
       borderTopStyle: `solid`,
       borderTopWidth: `2px`,
-      borderTopColor: `tagBackground`,
+      borderTopColor: `primarySoft`,
       mx: 0,
     },
   },
   layout: {
     container: {
       padding: [2, 3],
-      // maxWidth: `1024px`,
+      maxWidth: "1000px",
       width: ["100%", "100%", "80%"],
       minHeight: `100vh`,
       display: `flex`,
-      flexDirection: `column`,
+      flexDirection: "row",
+      justifyContent: "center"
     },
     // footer: {
     //   borderTopStyle: `solid`,
@@ -228,13 +242,13 @@ const theme = merge(tailwind, {
     bottom: {
       borderBottomStyle: `solid`,
       borderBottomWidth: `3px`,
-      borderBottomColor: `tagBackground`,
+      borderBottomColor: `heading`,
       pb: 3,
     },
     top: {
       borderTopStyle: `solid`,
       borderTopWidth: `3px`,
-      borderTopColor: `tagBackground`,
+      borderTopColor: `heading`,
       pt: 3,
     },
     header: {

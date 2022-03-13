@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import * as React from "react";
 import { Global } from "@emotion/react";
-import { Box, Container, Divider, jsx } from "theme-ui";
+import { Box, Flex, Container, Divider, jsx } from "theme-ui";
 import Seo from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";
 import Header from "@lekoarts/gatsby-theme-minimal-blog/src/components/header";
 import Footer from "@lekoarts/gatsby-theme-minimal-blog/src/components/footer";
@@ -65,6 +65,8 @@ const Layout = ({ children, className = `` }: LayoutProps) => (
         sx={{
           ...CodeStyles, 
           px: [1, 0, 0],
+          maxWidth: "900px",
+          // margin: "auto",
           flex: 1, 
           flexDirection: "column", 
           display: "flex", 

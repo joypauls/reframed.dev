@@ -51,6 +51,7 @@
     "netlify-cms-app": "^2.15.67",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-lines-ellipsis": "^0.15.0",
     "react-select": "^4.3.1",
     "react-tooltip": "^4.2.21",
     "remark-html-katex": "^3.0.0",

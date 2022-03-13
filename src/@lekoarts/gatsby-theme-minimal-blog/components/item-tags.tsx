@@ -15,8 +15,8 @@ const tagStyle = {
   backgroundColor: "tagBackground",
   border: "1px solid",
   borderColor: "tagBorder",
-  borderRadius: "5px",
-  color: "tagText",
+  // borderRadius: "5px",
+  color: "tagBorder",
   paddingLeft: "0.25rem",
   paddingRight: "0.25rem",
   textDecoration: "none",
@@ -29,7 +29,7 @@ const tagStyle = {
     // color: "tagText",
     color: "tagBorder",
   },
-  fontSize: 1,
+  fontSize: [0, 1, 1],
 }
 
 const ItemTags = ({ tags }: TagsProps) => {

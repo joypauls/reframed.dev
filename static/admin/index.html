@@ -33,9 +33,14 @@
       render() {
         const entry = this.props.entry;
         const title = entry.getIn(["data", "title"], null);
+        const description = entry.getIn(["data", "description"], null);
+        const date = entry.getIn(["data", "date"], null);
+
+        // build and process document body
         let body = entry.getIn(["data", "body"], "");
         let div = document.createElement("div");
 
+        // handle images
         const renderer = new marked.Renderer()
         renderer.image = (href, title, text) => {
           if (!href) return text;
@@ -43,6 +48,7 @@
           return `<img src="${uri}" title="${title}" alt="${text}"/>`
         }
 
+        // markdown body processing
         marked.setOptions({
           highlight: function (code, lang) {
             return hljs.highlightAuto(code, [lang]).value;
@@ -62,6 +68,8 @@
             <main>
               <article id="markdown-body" class="markdown-body">
                 <h1>${title}</h1>
+                <h5>${description}</h5>
+                <h5>${date}</h5>
                 <div dangerouslySetInnerHTML=${{ __html: div.innerHTML }}></div>
               </article>
             </main>
